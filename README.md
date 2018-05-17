@@ -8,8 +8,8 @@ cd aws/cloudwatch-events
 git clone ssh://username@domainname.com/cloudwatch-events.git .
 ```
 
-```cron
-sudo ln -s /home/ec2-user/aws/cloudwatch-events/put-disk-space.cron /etc/cron.d/cloudwatch-put-disk-space
+```install
+sudo install.sh
 ```
 
 h2. Other options
