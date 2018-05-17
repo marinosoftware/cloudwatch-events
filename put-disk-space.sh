@@ -6,15 +6,15 @@ used=`echo $root | awk -F " " '{print $3}'`
 free=`echo $root | awk -F " " '{print $4}'`
 percent=`echo $root | awk -F " " '{print $5}' | grep -o "[0-9]\+"`
 unit="Kilobytes"
-namespace="DS6"
+namespace="Ec2-DiskSpace"
 dimensions="Dimensions=[{Name=InstanceName,Value="\""$instance_name"\""},{Name=InstanceID,Value="$instance_id"}]"
 
 echo "DiskSpace:Total="$total",Used="$used",Free="$free",Percent="$percent
 
 aws cloudwatch put-metric-data --metric-data \
-"MetricName=DiskSpaceTotal,$dimensions,Value=$total,Unit=$unit" \
-"MetricName=DiskSpaceUsed,$dimensions,Value=$used,Unit=$unit" \
-"MetricName=DiskSpaceFree,$dimensions,Value=$free,Unit=$unit" \
-"MetricName=DiskSpacePercent,$dimensions,Value=$percent,Unit=Percent" \
+"MetricName=Total,$dimensions,Value=$total,Unit=$unit" \
+"MetricName=Used,$dimensions,Value=$used,Unit=$unit" \
+"MetricName=Free,$dimensions,Value=$free,Unit=$unit" \
+"MetricName=PercentUsed,$dimensions,Value=$percent,Unit=Percent" \
 --namespace $namespace
 
