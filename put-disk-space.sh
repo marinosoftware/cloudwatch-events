@@ -11,9 +11,9 @@ namespace="DS5"
 echo "DiskSpace:Total="$total",Used="$used" ,Free="$free",Percent="$percent
 
 aws cloudwatch put-metric-data --metric-data \
-"MetricName=DiskSpaceTotal,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="$instance_name"}],Value="$total",Unit="$unit \
-"MetricName=DiskSpaceUsed,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="$instance_name"}],Value="$used",Unit="$unit \
-"MetricName=DiskSpaceFree,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="$instance_name"}],Value="$free",Unit="$unit \
-"MetricName=DiskSpacePercent,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="$instance_name"}],Value="$percent",Unit=Percent" \
+"MetricName=DiskSpaceTotal,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="\""$instance_name"\""}],Value="$total",Unit="$unit \
+"MetricName=DiskSpaceUsed,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="\""$instance_name"\""}],Value="$used",Unit="$unit \
+"MetricName=DiskSpaceFree,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="\""$instance_name"\""}],Value="$free",Unit="$unit \
+"MetricName=DiskSpacePercent,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="\""$instance_name"\""}],Value="$percent",Unit=Percent" \
 --namespace $namespace
 
