@@ -1,3 +1,5 @@
+instance_id=`curl -s http://169.254.169.254/latest/meta-data/instance-id`
+instance_type=`curl -s http://169.254.169.254/latest/meta-data/instance-type`
 root=`df | grep "\W\/$"`
 total=`echo $root | awk -F " " '{print $2}'`
 used=`echo $root | awk -F " " '{print $3}'`
