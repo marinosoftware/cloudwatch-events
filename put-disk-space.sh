@@ -7,7 +7,7 @@ free=`echo $root | awk -F " " '{print $4}'`
 percent=`echo $root | awk -F " " '{print $5}' | grep -o "[0-9]\+"`
 unit="Kilobytes"
 namespace="DS4"
-dimensions="Dimensions=[{Name=InstanceName,Value="\""$instance_name"\""},{Name=InstanceID,Value="$instance_id"}]"
+dimensions="Dimensions=[{Name=InstanceName,Value=\""$instance_name"\"},{Name=InstanceID,Value="$instance_id"}]"
 
 echo "DiskSpace:Total="$total",Used="$used" ,Free="$free",Percent="$percent
 
