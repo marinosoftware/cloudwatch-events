@@ -6,14 +6,15 @@ used=`echo $root | awk -F " " '{print $3}'`
 free=`echo $root | awk -F " " '{print $4}'`
 percent=`echo $root | awk -F " " '{print $5}' | grep -o "[0-9]\+"`
 unit="Kilobytes"
-namespace="DS5"
+namespace="DS4"
+dimensions="Dimensions=[{Name=InstanceName,Value="\""$instance_name"\""},{Name=InstanceID,Value="$instance_id"}]"
 
 echo "DiskSpace:Total="$total",Used="$used" ,Free="$free",Percent="$percent
 
 aws cloudwatch put-metric-data --metric-data \
-"MetricName=DiskSpaceTotal,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="\""$instance_name"\""}],Value="$total",Unit="$unit \
-"MetricName=DiskSpaceUsed,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="\""$instance_name"\""}],Value="$used",Unit="$unit \
-"MetricName=DiskSpaceFree,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="\""$instance_name"\""}],Value="$free",Unit="$unit \
-"MetricName=DiskSpacePercent,Dimensions=[{Name=InstanceID,Value="$instance_id"},{Name=InstanceName,Value="\""$instance_name"\""}],Value="$percent",Unit=Percent" \
+"MetricName=DiskSpaceTotal,"$dimensions",Value="$total",Unit=Kilobytes" \
+"MetricName=DiskSpaceUsed,"$dimensions",Value="$used",Unit=Kilobytes" \
+"MetricName=DiskSpaceFree,"$dimensions",Value="$free",Unit=Kilobytes" \
+"MetricName=DiskSpacePercent,"$dimensions",Value="$percent",Unit=Percent" \
 --namespace $namespace
 
