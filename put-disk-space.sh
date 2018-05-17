@@ -9,10 +9,10 @@ unit="Kilobytes"
 namespace="DS3"
 
 aws cloudwatch put-metric-data --metric-data \
-"MetricName=DiskSpaceTotal,Dimensions=[{InstanceID="$instance_id"}],Value="$total",Unit="$unit \
-"MetricName=DiskSpaceUsed,Dimensions=[{InstanceID="$instance_id"}],Value="$used",Unit="$unit \
-"MetricName=DiskSpaceFree,Dimensions=[{InstanceID="$instance_id"}],Value="$free",Unit="$unit \
-"MetricName=DiskSpacePercent,Dimensions=[{InstanceID="$instance_id"}],Value="$percent",Unit="$unit \
+"MetricName=DiskSpaceTotal,Dimensions=[{Name=InstanceID,Value="$instance_id"}],Value="$total",Unit="$unit \
+"MetricName=DiskSpaceUsed,Dimensions=[{Name=InstanceID,Value=="$instance_id"}],Value="$used",Unit="$unit \
+"MetricName=DiskSpaceFree,Dimensions=[{Name=InstanceID,Value=="$instance_id"}],Value="$free",Unit="$unit \
+"MetricName=DiskSpacePercent,Dimensions=[{Name=InstanceID,Value=="$instance_id"}],Value="$percent",Unit="$unit \
 --namespace $namespace
 
 # aws cloudwatch put-metric-data --namespace $namespace --metric-name DiskSpaceTotal   --unit $unit    --value $total   --dimensions InstanceID=$instance_id,InstanceType=$instance_type
