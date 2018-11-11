@@ -47,7 +47,7 @@ h2. Installation
 ```git
 mkdir -p aws/cloudwatch-events
 cd aws/cloudwatch-events
-git clone ssh://username@domainname.com/cloudwatch-events.git .
+git clone https://github.com/marinosoftware/cloudwatch-events.git .
 ```
 
 ```install
