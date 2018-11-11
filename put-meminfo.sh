@@ -13,5 +13,5 @@ dimensions="Dimensions=[{Name=InstanceName,Value="\""$instance_name"\""},{Name=I
 
 aws cloudwatch put-metric-data --metric-data \
 "MetricName=Total,$dimensions,Value=$total,Unit=$unit" \
-"MetricName=Available,$dimensions,Value=$available,Unit=$unit"
+"MetricName=Available,$dimensions,Value=$available,Unit=$unit" \
 --namespace $namespace
