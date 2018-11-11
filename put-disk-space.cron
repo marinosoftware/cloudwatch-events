@@ -9,5 +9,5 @@
 # |  |  |  |  |
 # *  *  *  *  * user-name command to be executed
 
-# run 15 minutes past the hour, every hour
-15  *  *  *  * ec2-user cd /home/ec2-user/aws/cloudwatch-events ; ./put-disk-space.sh >>log/cloudwatch-events.log 2>&1
+# run every 15 minutes
+*/15  *  *  *  * ec2-user cd /home/ec2-user/aws/cloudwatch-events ; ./put-disk-space.sh >>log/cloudwatch-events.log 2>&1

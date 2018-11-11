@@ -9,6 +9,6 @@
 # |  |  |  |  |
 # *  *  *  *  * user-name command to be executed
 
-# run 15 minutes past the hour, every hour
-5  *  *  *  * ec2-user cd /home/ec2-user/aws/cloudwatch-events ; ./put-meminfo.sh >>log/cloudwatch-events.log 2>&1
+# run every 2 minutes
+*/2  *  *  *  * ec2-user cd /home/ec2-user/aws/cloudwatch-events ; ./put-meminfo.sh >>log/cloudwatch-events.log 2>&1
 
